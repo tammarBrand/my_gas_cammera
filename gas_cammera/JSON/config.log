@@ -1,0 +1,15 @@
+'shell':{
+'record':{
+'file_name':my_well_record.ts,
+'codec':2,
+'width':240,
+'height':320,
+'GOP':5
+}
+'snapshot':{
+'file_name':./photos/2022-10-30 15:44:23.jpg,
+'width':240,
+'height':320,
+'type':jpg
+}
+}
