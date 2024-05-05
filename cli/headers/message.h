@@ -58,7 +58,7 @@ typedef enum Data_indexes{
     Data_index=1,
 
 }Data_indexes;
-/*
+
 typedef enum Image_type{
     JPG=1,
     BMP=2
@@ -73,7 +73,7 @@ typedef struct name_and_img_type{
     char name[FILE_NAME_LENGTH];
     Image_type type;
 }name_and_img_type;
-*/
+
 typedef struct header{
     int magic;
     int header_size;

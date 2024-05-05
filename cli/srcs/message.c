@@ -1,15 +1,12 @@
-#include "message.h"
+#include "../headers/message.h"
 #define magic 0x10203040
 #define MAXLINE 1024
-
 
 
 enum statuses{READ=1,
               CHECK_MAGIC=2,
               GET_HEADER_SIZE=3,
               GET_HEADER=4,
-              ACTION=5,
-              REPLAY=6,
               FINISH=7
              };
 
@@ -76,8 +73,7 @@ void read_from(){
 
     int n;
     n = recvfrom(sockfd,buffer,  MAXLINE ,
-                 MSG_WAITALL, ( struct sockaddr *) &dest_add,
-                 (socklen_t*)&dest_len);
+                 MSG_WAITALL, ( struct sockaddr *) &dest_add,(socklen_t*)&dest_len);
     if(n==-1){
         printf("cant read!\n");
         exit(0);
@@ -147,6 +143,8 @@ bool check_magic(){
         }
         buffer_index++;
     }
+
+
 }
 
 bool get_header(header* message_header){
@@ -155,6 +153,7 @@ bool get_header(header* message_header){
     buffer_index+=sizeof(header);
     return true;
 }
+
 
 int get_checksum(char data[]){
     int sum=0;
@@ -170,4 +169,3 @@ bool check_checksum(int sum,char data[]){
     return sum==new_sum;
 
 }
-
